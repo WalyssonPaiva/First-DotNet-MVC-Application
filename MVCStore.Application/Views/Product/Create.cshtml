@@ -1,0 +1,61 @@
+﻿@model MVCStore.Application.ViewModels.ProductViewModel
+
+@{
+    ViewData["Title"] = "Novo Produto";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <form enctype="multipart/form-data" asp-action="Create">
+
+            <vc:Summary></vc:Summary>
+
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea cols="40" rows="5" asp-for="Description" class="form-control"></textarea>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <label asp-for="ImageUpload" class="control-label"></label>
+                    <input type="file" class="custom-file-input" id="ImageUpload" asp-for="ImageUpload">
+                    <label data-browse="Procurar" style="width: 400px" class="custom-file-label" for="ImageUpload"></label>
+                    <label style="display: none" id="img_nome"></label>
+                </div>
+                <span asp-validation-for="ImageUpload" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-primary"/>
+                <a class="btn btn-info" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+           $("#ImageUpload").change(function () {
+               $("#img_nome").text(this.files[0].name);
+               $("#img_nome")[0].style.display = 'block';
+           });
+   
+           $("#ImageUpload").attr("data-val", "true");
+           $("#ImageUpload").attr("data-val-required", "Preencha o campo Imagem");
+       </script>
+}

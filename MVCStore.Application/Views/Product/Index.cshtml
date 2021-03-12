@@ -1,0 +1,41 @@
+@model ICollection<MVCStore.Application.ViewModels.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Produtos";
+}
+
+
+<div class="container-sm">
+    <div class="top-infos">
+    <h1>@ViewData["Title"]</h1>
+
+    <p supress-by-claim-name="Produto" supress-by-claim-value="Adicionar">
+        <a class="btn btn-info"  asp-action="Create">Novo Produto</a>
+    </p>
+    </div>
+    <div class="grid-container">
+        @foreach (var item in Model) {
+            <div class="product-card" style="width: 18rem;">
+                <img src="~/images/@item.Image" class="product-image" alt="Image for @item.Name">
+                <div class="product-body">
+                    <h5 class="title">@item.Name</h5>
+                    <p class="description">@item.Description</p>
+                </div>
+                <div class="product-footer">
+                    <div class="price-row">
+                        <p class="price">@item.Price.ToString("C")</p>
+                        <button type="button" class="btn btn-dark">Comprar</button>
+                    </div>
+                    <div class="buttons-card">
+                        <a class="btn btn-warning" supress-by-claim-name="Produto" supress-by-claim-value="Editar" asp-action="Edit" asp-route-id="@item.Id">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger" supress-by-claim-name="Produto" supress-by-claim-value="Deletar" asp-action="Delete" asp-route-id="@item.Id">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
