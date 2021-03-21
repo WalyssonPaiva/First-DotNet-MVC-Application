@@ -12,11 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{85FE2CAA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{95098828-2E8A-4085-85DD-A2551ADAE691}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCutting", "CrossCutting", "{BECBFB30-6296-47F7-B4B2-1847A22089B7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCStore.Infra.Data", "MVCStore.Infra.Data\MVCStore.Infra.Data.csproj", "{481C0589-7AD7-4FBF-BD8E-0D72F1D9B6AB}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCStore.Infra.CrossCutting", "MVCStore.Infra.CrossCutting\MVCStore.Infra.CrossCutting.csproj", "{F453ECB4-C857-495A-A32C-CE9D452FA9E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
